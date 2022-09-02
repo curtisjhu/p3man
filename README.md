@@ -20,3 +20,10 @@ Commands:
   wipe    Removes all data, all passwords from device (irreversable)
 ```
 
+### Security
+
+Your master password is hashed via python's cryptography's Scrypt.
+Your accounts encrypted using the <em>original</em> password.
+![](workflow.png)
+
+
