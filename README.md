@@ -2,6 +2,10 @@
 The password manager as simple as 1, 2, 3
 
 ### Keep. It. Simple. Secure. (KISS)
+Visit [pypi](https://pypi.org/project/p3man/)
+```
+pip install p3man
+```
 
 ```
 Usage: p3man [OPTIONS] COMMAND [ARGS]...
