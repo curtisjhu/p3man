@@ -40,4 +40,4 @@ def verify(password):
 	except InvalidKey:
 		raise ValueError("Wrong Password")
 	except:
-		raise Exception("Error")
+		raise Exception("Something went wrong")

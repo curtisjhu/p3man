@@ -8,6 +8,7 @@ from cryptography.exceptions import InvalidKey
 @click.command()
 @click.password_option()
 def add(password:str):
+    """ Add (username) and (password) for an account """
     verify(password)
     account = click.prompt("Account (gmail, reddit, etc)").lower()
     username = click.prompt(f"Account username for {account}")
@@ -27,10 +28,33 @@ def add(password:str):
         Success()
     except:
         Error("An error occurred. Check if an account already exists")
+
+@click.command()
+@click.password_option()
+def remove(password:str):
+    """ Remove an account """
+    verify(password)
+    account = click.prompt("Account (gmail, reddit, etc)").lower()
+    username = click.prompt(f"Account username for {account}")
+
+    try:
+        c, conn = connect()
+        c.execute("""
+            DELETE FROM user
+            WHERE account = ?
+            AND username = ?;
+        """,
+        (account, username,))
+        conn.commit()
+        conn.close()
+        Success()
+    except:
+        Error("An error occurred.")
     
 @click.command()
 @click.password_option()
 def update(password:str):
+    """ Update password for an account. """
     verify(password)
     account = click.prompt("Account (gmail, reddit, etc)").lower()
     np = click.prompt(f"New password for {account}", hide_input=True)
@@ -54,6 +78,7 @@ def update(password:str):
 @click.command()
 @click.password_option()
 def get(password: str):
+    """ Retrieves password from account. """
     verify(password)
     account = click.prompt("Account (gmail, reddit, facebook, etc)").lower()
     
@@ -74,13 +99,16 @@ def get(password: str):
 @click.command()
 @click.password_option()
 def list(password):
+    """ List accounts in database (hashed). """
     verify(password)
 
     try:
         c, conn = connect()
         c.execute("SELECT * FROM user;")
-        res = c.fetchall()
-        click.echo(res)
+        rows = c.fetchall()
+
+        for u in rows:
+            click.echo(u)
         conn.commit()
         conn.close()
     except:

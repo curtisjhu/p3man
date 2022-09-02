@@ -1,6 +1,6 @@
 import click
 from .account import reset, setup, wipe
-from .queries import list, get, add, update
+from .queries import list, get, add, update, remove
 
 @click.group()
 def cli():
@@ -13,5 +13,6 @@ cli.add_command(wipe)
 cli.add_command(list)
 cli.add_command(get)
 cli.add_command(add)
+cli.add_command(remove)
 cli.add_command(update)
 

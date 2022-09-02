@@ -4,18 +4,13 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from .db import connect
 import base64
+from .constant import secret_salt
 
 def getKey(password: str):
-	c, conn = connect()
-	c.execute("""
-		SELECT username FROM user
-		WHERE account = 'master';
-	""")
-	salt = c.fetchone()[0]
 	kdf = PBKDF2HMAC(
 		algorithm=hashes.SHA256(),
 		length=32,
-		salt=salt,
+		salt=secret_salt,
 		iterations=390000,
 	)
 	hashed = kdf.derive(bytes(password, "utf-8"))
