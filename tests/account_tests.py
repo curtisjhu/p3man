@@ -5,8 +5,11 @@ class AccountTest():
     runner = CliRunner()
     def test_setup(self):
         res = runner.invoke(setup)
+        assert result.exit_code == 0
     
     def test_reset(self):
-        pass
+        res = runner.invoke(setup)
+        assert result.exit_code == 0
     def test_wipe(self):
-        pass
+        res = runner.invoke(setup)
+        assert result.exit_code == 0
