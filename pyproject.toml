@@ -1,7 +1,7 @@
 
 [tool.poetry]
 name = "p3man"
-version = "0.1.1"
+version = "0.1.2"
 description = "Password manager. Manage your passwords as simple as 1, 2, 3"
 authors = ["curtis <curtis.hu688@gmail.com>"]
 homepage = "https://github.com/curtisjhu/p3man"
