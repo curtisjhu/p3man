@@ -1,9 +1,13 @@
 
 [tool.poetry]
 name = "p3man"
-version = "0.1.0"
-description = "Password manager. Manage your passwords through encryption."
+version = "0.1.1"
+description = "Password manager. Manage your passwords as simple as 1, 2, 3"
 authors = ["curtis <curtis.hu688@gmail.com>"]
+homepage = "https://github.com/curtisjhu/p3man"
+repository = "https://github.com/curtisjhu/p3man"
+readme = "README.md"
+
 
 [tool.poetry.scripts]
 p3man = 'p3man:cli'
