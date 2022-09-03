@@ -1,6 +1,7 @@
 # p3man
 The password manager as simple as 1, 2, 3
 
+> Note: Please exit the terminal session. Obviously, try not to save terminal output (cmd+S). Although `ssh` should still not be able to see your terminal previous sessions.
 ### Keep. It. Simple. Secure. (KISS)
 Visit [pypi](https://pypi.org/project/p3man/)
 ```
